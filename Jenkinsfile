@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker { 
-      image 'docker pull jayabalan/puppet-lint'
+      image 'jayabalan/puppet-lint'
       reuseNode true
     }
   }
