@@ -1,6 +1,6 @@
 FROM alpine
 
-RUN apk uupdate&& apk upgrade
+RUN apk update&& apk upgrade
 RUN apk add ruby \
     ruby-bundler \
     ruby-dev
