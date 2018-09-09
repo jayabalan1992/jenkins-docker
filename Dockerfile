@@ -7,6 +7,6 @@ RUN apk add ruby \
 RUN gem install puppet-lint --no-document
 
 VOLUME /modules
-ENTRYPOINT ["puppet-lint"]
+ENTRYPOINT ["puppet"]
 CMD ["/modules"]
 
