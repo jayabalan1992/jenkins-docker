@@ -8,7 +8,12 @@ pipeline {
   stages {
     stage('Linting Puppet files') {
       steps {
-        sh 'puppet-lint ./*.pp'
+        sh 'find . -name "*.pp" | xargs puppet-lint'
+      }
+    }
+    stage('Parser validate'){
+      steps {
+        sh 'find . -name "*.pp" | xargs puppet parser validate'
       }
     }
   }
