@@ -8,5 +8,5 @@ RUN gem install puppet-lint --no-document
 
 VOLUME /modules
 ENTRYPOINT ["puppet"]
-CMD ["/modules"]
+
 

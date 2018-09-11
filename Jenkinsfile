@@ -6,15 +6,20 @@ pipeline {
     }
   }
   stages {
-    stage('Linting Puppet files') {
-      steps {
-        sh 'find . -name "*.pp" | xargs puppet-lint'
-      }
-    }
-    stage('Parser validate'){
-      steps {
-        sh 'find . -name "*.pp" | xargs puppet parser validate'
+    stage('Run tests') {
+      parallel {
+        stage('Lint test') {
+          steps {
+            sh 'find . -name "*.pp" | xargs puppet-lint'
+          }
+        }  
+        stage('Parser validate') {
+          steps {
+            sh 'find . -name "*.pp" | xargs puppet parser validate'
+          }
+        }
       }
     }
   }
 }
+
